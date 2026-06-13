@@ -14,7 +14,7 @@ const projects = [
     color: "#2563EB",
     bgColor: "#1e3a8a",
     image: "https://images.unsplash.com/photo-1636051028886-0059ad2383c8?w=800&h=500&fit=crop&auto=format",
-    year: "2024",
+    // year: "2024",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const projects = [
     color: "#3B82F6",
     bgColor: "#1e3a8a",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop&auto=format",
-    year: "2023",
+    // year: "2023",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const projects = [
     color: "#A259FF",
     bgColor: "#2d1458",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop&auto=format",
-    year: "2024",
+    // year: "2024",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const projects = [
     color: "#FF9A00",
     bgColor: "#4d2e00",
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=500&fit=crop&auto=format",
-    year: "2023",
+    // year: "2023",
   },
   {
     id: 5,
@@ -58,7 +58,7 @@ const projects = [
     color: "#10B981",
     bgColor: "#064e3b",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=500&fit=crop&auto=format",
-    year: "2022",
+    // year: "2022",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const projects = [
     color: "#9999FF",
     bgColor: "#1a1a4a",
     image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=500&fit=crop&auto=format",
-    year: "2024",
+    // year: "2024",
   },
 ];
 
@@ -136,19 +136,7 @@ function ProjectCard({ project, index, inView }: { project: typeof projects[0]; 
           </button>
         </div>
 
-        {/* Year badge */}
-        <div
-          className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs"
-          style={{
-            background: "rgba(5,5,5,0.8)",
-            border: `1px solid ${project.color}44`,
-            color: project.color,
-            fontFamily: "'JetBrains Mono', monospace",
-            backdropFilter: "blur(10px)",
-          }}
-        >
-          {project.year}
-        </div>
+
       </div>
 
       {/* Content */}

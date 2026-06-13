@@ -2,14 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { MagneticButton } from "./Navigation";
 import { Download, Eye } from "lucide-react";
-
-const floatingSoftware = [
-  { name: "Ps", color: "#31A8FF", label: "Photoshop", angle: 0 },
-  { name: "Ai", color: "#FF9A00", label: "Illustrator", angle: 72 },
-  { name: "Fg", color: "#A259FF", label: "Figma", angle: 144 },
-  { name: "Id", color: "#FF3366", label: "InDesign", angle: 216 },
-  { name: "Ae", color: "#9999FF", label: "After Effects", angle: 288 },
-];
+import amitImage from "../../assests/amit.png";
 
 function FloatingOrb({ delay = 0 }: { delay?: number }) {
   return (
@@ -31,47 +24,6 @@ function FloatingOrb({ delay = 0 }: { delay?: number }) {
   );
 }
 
-function SoftwareIcon({ item, index }: { item: typeof floatingSoftware[0]; index: number }) {
-  const radius = 200;
-  const rad = (item.angle * Math.PI) / 180;
-  const x = Math.cos(rad) * radius;
-  const y = Math.sin(rad) * radius;
-
-  return (
-    <motion.div
-      className="absolute flex flex-col items-center gap-1 cursor-pointer"
-      style={{ left: "50%", top: "50%", x: x - 28, y: y - 28 }}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay: 1.2 + index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ scale: 1.2, zIndex: 10 }}
-    >
-      <motion.div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg"
-        style={{
-          background: `linear-gradient(135deg, ${item.color}33, ${item.color}11)`,
-          border: `1px solid ${item.color}44`,
-          backdropFilter: "blur(10px)",
-          fontFamily: "'Orbitron', monospace",
-          boxShadow: `0 0 20px ${item.color}33`,
-        }}
-        animate={{ y: [0, -8, 0] }}
-        transition={{
-          duration: 3,
-          delay: index * 0.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        {item.name}
-      </motion.div>
-      <span className="text-xs" style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif" }}>
-        {item.label}
-      </span>
-    </motion.div>
-  );
-}
-
 function AvatarGlobe() {
   return (
     <motion.div
@@ -80,74 +32,26 @@ function AvatarGlobe() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Outer ring */}
-      <motion.div
-        className="absolute inset-0 rounded-full"
-        style={{ border: "1px solid rgba(37,99,235,0.3)" }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
-      {/* Middle ring */}
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          inset: "16px",
-          border: "1px dashed rgba(59,130,246,0.4)",
-        }}
-        animate={{ rotate: -360 }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-      />
-      {/* Avatar container */}
       <div
-        className="absolute rounded-full overflow-hidden"
+        className="absolute inset-0 rounded-full overflow-hidden"
         style={{
-          inset: "32px",
           background: "linear-gradient(135deg, #1e3a8a, #1d4ed8, #2563eb)",
           boxShadow: "0 0 60px rgba(37,99,235,0.5), inset 0 0 40px rgba(0,0,0,0.3)",
         }}
       >
-        {/* Stylized designer avatar */}
         <div
           className="w-full h-full flex items-center justify-center"
           style={{
             background: "linear-gradient(160deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%)",
           }}
         >
-          {/* Abstract face / silhouette */}
-          <svg viewBox="0 0 200 200" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="faceGrad" cx="50%" cy="40%" r="60%">
-                <stop offset="0%" stopColor="#93C5FD" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0.1" />
-              </radialGradient>
-            </defs>
-            {/* Body */}
-            <ellipse cx="100" cy="185" rx="55" ry="35" fill="rgba(15,30,80,0.8)" />
-            {/* Neck */}
-            <rect x="88" y="140" width="24" height="30" rx="8" fill="rgba(147,197,253,0.7)" />
-            {/* Head */}
-            <ellipse cx="100" cy="110" rx="42" ry="48" fill="url(#faceGrad)" />
-            {/* Hair */}
-            <ellipse cx="100" cy="70" rx="44" ry="20" fill="rgba(30,58,138,0.9)" />
-            <ellipse cx="62" cy="90" rx="10" ry="22" fill="rgba(30,58,138,0.9)" />
-            <ellipse cx="138" cy="90" rx="10" ry="22" fill="rgba(30,58,138,0.9)" />
-            {/* Eyes */}
-            <ellipse cx="84" cy="112" rx="8" ry="9" fill="rgba(15,23,42,0.9)" />
-            <ellipse cx="116" cy="112" rx="8" ry="9" fill="rgba(15,23,42,0.9)" />
-            <circle cx="86" cy="110" r="3" fill="white" opacity="0.9" />
-            <circle cx="118" cy="110" r="3" fill="white" opacity="0.9" />
-            {/* Glasses */}
-            <rect x="74" y="104" width="24" height="16" rx="5" fill="none" stroke="rgba(59,130,246,0.8)" strokeWidth="1.5" />
-            <rect x="102" y="104" width="24" height="16" rx="5" fill="none" stroke="rgba(59,130,246,0.8)" strokeWidth="1.5" />
-            <line x1="98" y1="112" x2="102" y2="112" stroke="rgba(59,130,246,0.8)" strokeWidth="1.5" />
-            {/* Smile */}
-            <path d="M 88 128 Q 100 138 112 128" fill="none" stroke="rgba(147,197,253,0.7)" strokeWidth="2" strokeLinecap="round" />
-            {/* Collar / shirt */}
-            <path d="M 65 172 L 75 150 L 100 160 L 125 150 L 135 172 Z" fill="rgba(37,99,235,0.7)" />
-          </svg>
+          <img
+            src={amitImage}
+            alt="Amit Agrahari"
+            className="w-full h-full object-cover rounded-full"
+          />
         </div>
       </div>
-      {/* Glow underneath */}
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-10 rounded-full"
         style={{
@@ -314,10 +218,12 @@ export function HeroSection() {
               <Eye size={14} className="inline mr-2" />
               View Projects
             </MagneticButton>
-            <MagneticButton variant="outline">
-              <Download size={14} className="inline mr-2" />
-              Download Resume
-            </MagneticButton>
+            <a href="https://drive.google.com/file/d/1FKk6Jb9oNbOiuRK2b5yOSgyTAAMKNCUd/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+              <MagneticButton variant="outline">
+                <Download size={14} className="inline mr-2" />
+                Download Resume
+              </MagneticButton>
+            </a>
           </motion.div>
 
           {/* Stats */}
@@ -361,9 +267,6 @@ export function HeroSection() {
         >
           <div className="relative" style={{ width: "420px", height: "420px" }}>
             <AvatarGlobe />
-            {floatingSoftware.map((item, i) => (
-              <SoftwareIcon key={item.name} item={item} index={i} />
-            ))}
           </div>
         </motion.div>
       </motion.div>

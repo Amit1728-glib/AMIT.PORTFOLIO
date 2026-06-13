@@ -5,16 +5,16 @@ import { SectionHeader } from "./AboutSection";
 import { Send, Mail, MapPin, Phone, Instagram, Linkedin, Twitter, Dribbble } from "lucide-react";
 
 const socials = [
-  { Icon: Instagram, label: "Instagram", color: "#E1306C", href: "#" },
-  { Icon: Linkedin, label: "LinkedIn", color: "#0A66C2", href: "#" },
-  { Icon: Dribbble, label: "Dribbble", color: "#EA4C89", href: "#" },
-  { Icon: Twitter, label: "Twitter/X", color: "#1DA1F2", href: "#" },
+  { Icon: Instagram, label: "Instagram", color: "#E1306C", href: "https://www.instagram.com/theamitdesigns" },
+  { Icon: Linkedin, label: "LinkedIn", color: "#0A66C2", href: "https://www.linkedin.com/in/amitagrahari-uiux" },
+  // { Icon: Dribbble, label: "Dribbble", color: "#EA4C89", href: "#" },
+  // { Icon: Twitter, label: "Twitter/X", color: "#1DA1F2", href: "#" },
 ];
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "amit.agrahari@design.com", color: "#2563EB" },
-  { icon: Phone, label: "Phone", value: "+91 98765 43210", color: "#10B981" },
-  { icon: MapPin, label: "Location", value: "India", color: "#FF9A00" },
+  { icon: Mail, label: "Email", value: "agrahariamit648@gmail.com", color: "#2563EB" },
+  { icon: Phone, label: "Phone", value: "+91 8115291415", color: "#10B981" },
+  { icon: MapPin, label: "Location", value: "India, Gorakhpur", color: "#FF9A00" },
 ];
 
 function FloatingInput({
@@ -107,16 +107,24 @@ function FloatingTextarea({ label, value, onChange }: { label: string; value: st
 export function ContactSection() {
   const { ref, inView } = useInView(0.2);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Build WhatsApp message per spec
+    const whatsappNumber = "918115291415"; // target without +
+    const text = `🚀 New Portfolio Inquiry\n\n👤 Name: ${form.name || "-"}\n\n📧 Email: ${form.email || "-"}\n\n📝 Subject: ${form.subject || "-"}\n\n💬 Message:\n${form.message || "-"}`;
+    const encoded = encodeURIComponent(text);
+    const url = `https://wa.me/${whatsappNumber}?text=${encoded}`;
+
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSent(true);
-    }, 1500);
+    // Open WhatsApp in a new tab/window
+    window.open(url, "_blank");
+
+    // Clear form fields immediately after opening WhatsApp
+    setForm({ name: "", email: "", subject: "", message: "" });
+    // Stop loading state quickly — keep UX snappy
+    setTimeout(() => setLoading(false), 600);
   };
 
   return (
@@ -167,7 +175,17 @@ export function ContactSection() {
                         {info.label}
                       </div>
                       <div style={{ color: "#F5F5F5", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.9rem" }}>
-                        {info.value}
+                        {info.label === "Email" ? (
+                          <a href={`mailto:${info.value}`} className="hover:underline">
+                            {info.value}
+                          </a>
+                        ) : info.label === "Phone" ? (
+                          <a href={`tel:${info.value.replace(/\s+/g, "")}`} className="hover:underline">
+                            {info.value}
+                          </a>
+                        ) : (
+                          info.value
+                        )}
                       </div>
                     </div>
                   </div>
@@ -185,6 +203,9 @@ export function ContactSection() {
                   <motion.a
                     key={label}
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
                     className="w-11 h-11 rounded-xl flex items-center justify-center"
                     style={{
                       background: `${color}15`,
@@ -221,33 +242,6 @@ export function ContactSection() {
                 boxShadow: "0 0 80px rgba(37,99,235,0.05)",
               }}
             >
-              {sent ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center h-64 gap-4 text-center"
-                >
-                  <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(37,99,235,0.15)", border: "1px solid rgba(37,99,235,0.4)" }}
-                  >
-                    <Send size={32} style={{ color: "#2563EB" }} />
-                  </div>
-                  <h3 style={{ fontFamily: "'Orbitron', monospace", color: "#F5F5F5", fontSize: "1.25rem" }}>
-                    Message Sent!
-                  </h3>
-                  <p style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif" }}>
-                    Thanks for reaching out. I'll get back to you within 24 hours.
-                  </p>
-                  <button
-                    onClick={() => setSent(false)}
-                    className="mt-2 text-sm underline"
-                    style={{ color: "#2563EB", fontFamily: "'Space Grotesk', sans-serif" }}
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="grid md:grid-cols-2 gap-5">
                     <FloatingInput label="Your Name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} required />
@@ -287,7 +281,6 @@ export function ContactSection() {
                     )}
                   </motion.button>
                 </form>
-              )}
             </div>
           </motion.div>
         </div>
