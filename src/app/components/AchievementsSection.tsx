@@ -69,11 +69,11 @@ export function AchievementsSection() {
   const { ref, inView } = useInView(0.2);
 
   return (
-    <section className="relative py-32 px-6 overflow-hidden" style={{ background: "#050505" }}>
+    <section className="relative py-32 px-6 overflow-hidden" style={{ background: "#ffffff" }}>
       <div
         className="absolute inset-0"
         style={{
-          background: "radial-gradient(ellipse at 100% 0%, rgba(37,99,235,0.1) 0%, transparent 50%)",
+          background: "radial-gradient(ellipse at 100% 0%, rgba(37,99,235,0.08) 0%, transparent 50%)",
         }}
       />
 
@@ -92,7 +92,7 @@ export function AchievementsSection() {
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="relative p-6 rounded-2xl text-center group"
                 style={{
-                  background: "rgba(10,10,20,0.8)",
+                  background: "rgba(255,255,255,0.95)",
                   border: `1px solid ${stat.color}22`,
                   backdropFilter: "blur(20px)",
                 }}
@@ -116,7 +116,7 @@ export function AchievementsSection() {
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} inView={inView} />
                 </div>
                 <div
-                  style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.8rem", letterSpacing: "0.05em" }}
+                  style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.8rem", letterSpacing: "0.05em" }}
                 >
                   {stat.label}
                 </div>
@@ -135,7 +135,7 @@ export function AchievementsSection() {
               transition={{ duration: 0.7, delay: 0.3 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="flex gap-4 p-6 rounded-2xl"
               style={{
-                background: "rgba(10,10,20,0.8)",
+                background: "rgba(255,255,255,0.95)",
                 border: `1px solid ${ach.color}22`,
                 backdropFilter: "blur(20px)",
               }}
@@ -153,7 +153,7 @@ export function AchievementsSection() {
                       fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "0.95rem",
                       fontWeight: 600,
-                      color: "#F5F5F5",
+                      color: "#000000",
                       lineHeight: 1.4,
                     }}
                   >
@@ -170,7 +170,7 @@ export function AchievementsSection() {
                     {ach.year}
                   </span>
                 </div>
-                <p style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.85rem", lineHeight: 1.6 }}>
+                <p style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.85rem", lineHeight: 1.6 }}>
                   {ach.desc}
                 </p>
               </div>

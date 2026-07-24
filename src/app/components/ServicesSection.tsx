@@ -15,37 +15,37 @@ const services = [
     icon: Share2,
     title: "Social Media Design",
     desc: "Scroll-stopping social media templates, content packs, and campaign assets that drive engagement and grow your audience.",
-    color: "#A259FF",
+    color: "#2563EB",
     features: ["Content Templates", "Story Design", "Campaign Assets", "Reel Covers"],
   },
   {
     icon: Monitor,
     title: "UI/UX Design",
     desc: "User-centered interface design with thorough research, wireframing, prototyping, and polished high-fidelity designs.",
-    color: "#10B981",
+    color: "#2563EB",
     features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
   },
   {
     icon: PenTool,
     title: "Logo Design",
     desc: "Distinctive, memorable logos that encapsulate your brand essence — from wordmarks to emblems, crafted with precision.",
-    color: "#FF9A00",
+    color: "#2563EB",
     features: ["Custom Logo", "Icon Design", "Variations", "Vector Files"],
   },
   {
     icon: Printer,
     title: "Print Design",
     desc: "Premium print collateral from business cards to large-format displays, brochures, catalogues, and packaging.",
-    color: "#F43F5E",
+    color: "#2563EB",
     features: ["Brochures", "Catalogues", "Packaging", "Banners"],
   },
-  {
-    icon: Play,
-    title: "Motion Graphics",
-    desc: "Dynamic animated content including intro/outro sequences, animated logos, explainer videos, and social media reels.",
-    color: "#9999FF",
-    features: ["Logo Animation", "Title Sequences", "Explainer Videos", "Social Reels"],
-  },
+  // {
+  //   icon: Play,
+  //   title: "Motion Graphics",
+  //   desc: "Dynamic animated content including intro/outro sequences, animated logos, explainer videos, and social media reels.",
+  //   color: "#9999FF",
+  //   features: ["Logo Animation", "Title Sequences", "Explainer Videos", "Social Reels"],
+  // },
 ];
 
 function ServiceCard({ service, index, inView }: { service: typeof services[0]; index: number; inView: boolean }) {
@@ -58,8 +58,8 @@ function ServiceCard({ service, index, inView }: { service: typeof services[0]; 
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="group relative p-6 rounded-2xl overflow-hidden cursor-pointer"
       style={{
-        background: "rgba(10,10,20,0.8)",
-        border: "1px solid rgba(37,99,235,0.15)",
+        background: "rgba(255,255,255,0.95)",
+        border: "1px solid rgba(37,99,235,0.12)",
         backdropFilter: "blur(20px)",
         transition: "border-color 0.3s",
       }}
@@ -91,7 +91,7 @@ function ServiceCard({ service, index, inView }: { service: typeof services[0]; 
           fontFamily: "'Orbitron', monospace",
           fontSize: "1rem",
           fontWeight: 600,
-          color: "#F5F5F5",
+          color: "#000000",
         }}
       >
         {service.title}
@@ -99,7 +99,7 @@ function ServiceCard({ service, index, inView }: { service: typeof services[0]; 
 
       <p
         className="mb-5"
-        style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.875rem", lineHeight: 1.7 }}
+        style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.875rem", lineHeight: 1.7 }}
       >
         {service.desc}
       </p>
@@ -137,11 +137,11 @@ export function ServicesSection() {
   const { ref, inView } = useInView(0.1);
 
   return (
-    <section id="services" className="relative py-32 px-6 overflow-hidden" style={{ background: "#070710" }}>
+    <section id="services" className="relative py-32 px-6 overflow-hidden" style={{ background: "#ffffff" }}>
       <div
         className="absolute inset-0"
         style={{
-          background: "radial-gradient(ellipse at 50% 100%, rgba(37,99,235,0.12) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse at 50% 100%, rgba(37,99,235,0.08) 0%, transparent 60%)",
         }}
       />
 

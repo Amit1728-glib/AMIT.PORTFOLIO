@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { MagneticButton } from "./Navigation";
 import { Download, Eye } from "lucide-react";
-import amitImage from "../../assests/amit.png";
+const amitImage = new URL("../../assests/amit.jpeg", import.meta.url).href;
 
 function FloatingOrb({ delay = 0 }: { delay?: number }) {
   return (
     <motion.div
       className="absolute rounded-full"
       style={{
-        background: "radial-gradient(circle, rgba(37,99,235,0.3) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%)",
         filter: "blur(40px)",
         width: "300px",
         height: "300px",
@@ -36,22 +36,20 @@ function AvatarGlobe() {
         className="absolute inset-0 rounded-full overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #1e3a8a, #1d4ed8, #2563eb)",
-          boxShadow: "0 0 60px rgba(37,99,235,0.5), inset 0 0 40px rgba(0,0,0,0.3)",
+          boxShadow:
+            "0 0 60px rgba(37,99,235,0.5), inset 0 0 40px rgba(0,0,0,0.3)",
         }}
       >
-        <div
-          className="w-full h-full flex items-center justify-center"
+        <img
+          src={amitImage}
+          alt="Amit Agrahari"
+          className="w-full h-full object-cover"
           style={{
-            background: "linear-gradient(160deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%)",
+            objectPosition: "center 20%",
           }}
-        >
-          <img
-            src={amitImage}
-            alt="Amit Agrahari"
-            className="w-full h-full object-cover rounded-full"
-          />
-        </div>
+        />
       </div>
+
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-10 rounded-full"
         style={{
@@ -102,7 +100,7 @@ export function HeroSection() {
     <section
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "#050505" }}
+      style={{ background: "#ffffff" }}
     >
       {/* Background glow orbs */}
       <motion.div style={{ y, opacity }} className="absolute inset-0">
@@ -144,7 +142,7 @@ export function HeroSection() {
             style={{ background: "rgba(37,99,235,0.1)", border: "1px solid rgba(37,99,235,0.3)" }}
           >
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#2563EB" }} />
-            <span className="text-xs tracking-widest uppercase" style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif" }}>
+            <span className="text-xs tracking-widest uppercase" style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif" }}>
               Available for work
             </span>
           </motion.div>
@@ -158,11 +156,11 @@ export function HeroSection() {
               fontFamily: "'Orbitron', monospace",
               fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
               fontWeight: 800,
-              color: "#F5F5F5",
+              color: "#000000",
               letterSpacing: "-0.02em",
             }}
           >
-            Hi, I'm{" "}
+            I'm{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #2563EB, #60A5FA, #2563EB)",
@@ -188,12 +186,12 @@ export function HeroSection() {
             <p
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                color: "#9CA3AF",
+                color: "#1F2937",
                 fontSize: "clamp(1rem, 2vw, 1.25rem)",
                 letterSpacing: "0.08em",
               }}
             >
-              Graphic Designer &amp; UI/UX Designer
+              Graphic Designer &amp;  UI/UX Designer With AI Expert
             </p>
             <div className="h-px flex-1 max-w-12" style={{ background: "rgba(37,99,235,0.5)" }} />
           </motion.div>
@@ -202,7 +200,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#9CA3AF", maxWidth: "480px", lineHeight: 1.7 }}
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#1F2937", maxWidth: "480px", lineHeight: 1.7 }}
             className="mx-auto lg:mx-0 mb-10"
           >
             Crafting premium digital experiences with a passion for bold design, immersive interfaces, and pixel-perfect execution.
@@ -234,9 +232,9 @@ export function HeroSection() {
             className="flex gap-8 mt-12 justify-center lg:justify-start"
           >
             {[
-              { value: "3+", label: "Years Exp." },
-              { value: "50+", label: "Projects" },
-              { value: "20+", label: "Clients" },
+              { value: "6+", label: "Months Exp." },
+              { value: "20+", label: "Projects" },
+              { value: "4+", label: "Clients" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div
@@ -249,7 +247,7 @@ export function HeroSection() {
                 >
                   {stat.value}
                 </div>
-                <div style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#9CA3AF", fontSize: "0.75rem", letterSpacing: "0.1em" }}>
+                <div style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#1F2937", fontSize: "0.75rem", letterSpacing: "0.1em" }}>
                   {stat.label}
                 </div>
               </div>
@@ -278,7 +276,7 @@ export function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        <span className="text-xs tracking-widest uppercase" style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif" }}>
+        <span className="text-xs tracking-widest uppercase" style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif" }}>
           Scroll
         </span>
         <motion.div

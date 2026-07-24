@@ -57,9 +57,9 @@ function FloatingInput({
         onBlur={() => setFocused(false)}
         className="w-full pt-6 pb-3 px-4 rounded-xl outline-none transition-all duration-300"
         style={{
-          background: "rgba(255,255,255,0.04)",
-          border: `1px solid ${focused ? "rgba(37,99,235,0.6)" : "rgba(255,255,255,0.08)"}`,
-          color: "#F5F5F5",
+          background: "rgba(255,255,255,0.88)",
+          border: `1px solid ${focused ? "rgba(37,99,235,0.6)" : "rgba(148,163,184,0.35)"}`,
+          color: "#000000",
           fontFamily: "'Space Grotesk', sans-serif",
           boxShadow: focused ? "0 0 20px rgba(37,99,235,0.15)" : "none",
         }}
@@ -93,9 +93,9 @@ function FloatingTextarea({ label, value, onChange }: { label: string; value: st
         rows={5}
         className="w-full pt-8 pb-3 px-4 rounded-xl outline-none resize-none transition-all duration-300"
         style={{
-          background: "rgba(255,255,255,0.04)",
-          border: `1px solid ${focused ? "rgba(37,99,235,0.6)" : "rgba(255,255,255,0.08)"}`,
-          color: "#F5F5F5",
+          background: "rgba(255,255,255,0.88)",
+          border: `1px solid ${focused ? "rgba(37,99,235,0.6)" : "rgba(148,163,184,0.35)"}`,
+          color: "#000000",
           fontFamily: "'Space Grotesk', sans-serif",
           boxShadow: focused ? "0 0 20px rgba(37,99,235,0.15)" : "none",
         }}
@@ -128,7 +128,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-32 px-6 overflow-hidden" style={{ background: "#070710" }}>
+    <section id="contact" className="relative py-32 px-6 overflow-hidden" style={{ background: "#ffffff" }}>
       <div
         className="absolute inset-0"
         style={{
@@ -147,7 +147,7 @@ export function ContactSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-2 flex flex-col gap-8"
           >
-            <p style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif", lineHeight: 1.8 }}>
+            <p style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif", lineHeight: 1.8 }}>
               Ready to elevate your brand with exceptional design? I'd love to hear about your project. Let's create something extraordinary together.
             </p>
 
@@ -159,7 +159,7 @@ export function ContactSection() {
                     key={info.label}
                     className="flex items-center gap-4 p-4 rounded-xl"
                     style={{
-                      background: "rgba(10,10,20,0.8)",
+                      background: "rgba(255,255,255,0.95)",
                       border: `1px solid ${info.color}22`,
                       backdropFilter: "blur(10px)",
                     }}
@@ -171,10 +171,10 @@ export function ContactSection() {
                       <Icon size={18} style={{ color: info.color }} />
                     </div>
                     <div>
-                      <div className="text-xs tracking-widest uppercase mb-0.5" style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif" }}>
+                      <div className="text-xs tracking-widest uppercase mb-0.5" style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif" }}>
                         {info.label}
                       </div>
-                      <div style={{ color: "#F5F5F5", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.9rem" }}>
+                      <div style={{ color: "#000000", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.9rem" }}>
                         {info.label === "Email" ? (
                           <a href={`mailto:${info.value}`} className="hover:underline">
                             {info.value}
@@ -195,7 +195,7 @@ export function ContactSection() {
 
             {/* Socials */}
             <div>
-              <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif" }}>
+              <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif" }}>
                 Find me on
               </p>
               <div className="flex gap-4">
@@ -236,10 +236,10 @@ export function ContactSection() {
             <div
               className="p-8 rounded-3xl"
               style={{
-                background: "rgba(10,10,20,0.8)",
-                border: "1px solid rgba(37,99,235,0.2)",
+                background: "rgba(255,255,255,0.95)",
+                border: "1px solid rgba(37,99,235,0.1)",
                 backdropFilter: "blur(30px)",
-                boxShadow: "0 0 80px rgba(37,99,235,0.05)",
+                boxShadow: "0 0 40px rgba(37,99,235,0.05)",
               }}
             >
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">

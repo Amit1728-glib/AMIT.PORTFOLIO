@@ -2,17 +2,17 @@ import { motion } from "motion/react";
 import { useInView } from "../hooks/useInView";
 
 const experience = [
-  {
-    role: "Graphic Designer",
-    company: "Raj Mobile Hub",
-    period: "2022 – Present",
-    desc: "Spearheading brand identity, in-store visual design, promotional materials, and digital marketing assets for a growing retail brand.",
-    color: "#2563EB",
-  },
+  // {
+  //   role: "Graphic Designer",
+  //   company: "Raj Mobile Hub",
+  //   period: "june-2026 – August-2026",
+  //   desc: "Spearheading brand identity, in-store visual design, promotional materials, and digital marketing assets for a growing retail brand.",
+  //   color: "#2563EB",
+  // },
   {
     role: "Graphic Designer",
     company: "Amit Men's Wear",
-    period: "2020 – 2022",
+    period: "2025 – present",
     desc: "Created comprehensive brand collateral, catalogue design, social media campaigns, and seasonal lookbook layouts that elevated the brand presence.",
     color: "#3B82F6",
   },
@@ -22,7 +22,7 @@ export function AboutSection() {
   const { ref, inView } = useInView(0.2);
 
   return (
-    <section id="about" className="relative py-32 px-6 overflow-hidden" style={{ background: "#050505" }}>
+    <section id="about" className="relative py-32 px-6 overflow-hidden" style={{ background: "#ffffff" }}>
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-5"
@@ -45,27 +45,27 @@ export function AboutSection() {
             <div
               className="p-8 rounded-3xl"
               style={{
-                background: "rgba(15,15,25,0.8)",
-                border: "1px solid rgba(37,99,235,0.2)",
+                background: "rgba(255,255,255,0.9)",
+                border: "1px solid rgba(37,99,235,0.15)",
                 backdropFilter: "blur(20px)",
-                boxShadow: "0 0 60px rgba(37,99,235,0.05)",
+                boxShadow: "0 0 40px rgba(37,99,235,0.05)",
               }}
             >
               <p
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
-                  color: "#9CA3AF",
+                  color: "#000000",
                   lineHeight: 1.8,
                   fontSize: "1.05rem",
                   marginBottom: "1.5rem",
                 }}
               >
-                I'm a passionate Graphic and UI/UX Designer based in India, with over 3 years of experience creating visually compelling, user-centered design solutions. I bridge the gap between aesthetics and functionality — transforming ideas into premium digital and print experiences.
+                I'm a passionate Graphic and UI/UX Designer based in India, with over 6 months of experience creating visually compelling, user-centered design solutions. I bridge the gap between aesthetics and functionality — transforming ideas into premium digital and print experiences.
               </p>
               <p
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
-                  color: "#9CA3AF",
+                  color: "#000000",
                   lineHeight: 1.8,
                   fontSize: "1.05rem",
                 }}
@@ -76,15 +76,15 @@ export function AboutSection() {
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
                   { label: "Name", value: "Amit Agrahari" },
-                  { label: "Specialty", value: "UI/UX & Branding" },
-                  { label: "Location", value: "India" },
+                  { label: "Specialty", value: "Graphic Designer & UI-UX" },
+                  { label: "Location", value: "India,Gorakhpur" },
                   { label: "Status", value: "Available" },
                 ].map((item) => (
                   <div key={item.label} className="flex flex-col gap-1">
                     <span className="text-xs tracking-widest uppercase" style={{ color: "#2563EB", fontFamily: "'Space Grotesk', sans-serif" }}>
                       {item.label}
                     </span>
-                    <span style={{ color: "#F5F5F5", fontFamily: "'Space Grotesk', sans-serif" }}>{item.value}</span>
+                    <span style={{ color: "#000000", fontFamily: "'Space Grotesk', sans-serif" }}>{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -99,7 +99,7 @@ export function AboutSection() {
           >
             <h3
               className="mb-8 text-sm tracking-widest uppercase"
-              style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif" }}
+              style={{ color: "#1F2937", fontFamily: "'Space Grotesk', sans-serif" }}
             >
               Experience Timeline
             </h3>
@@ -128,7 +128,7 @@ export function AboutSection() {
                   <div
                     className="p-6 rounded-2xl"
                     style={{
-                      background: "rgba(15,15,25,0.8)",
+                      background: "rgba(255,255,255,0.95)",
                       border: `1px solid ${exp.color}22`,
                       backdropFilter: "blur(10px)",
                     }}
@@ -137,7 +137,7 @@ export function AboutSection() {
                       <h4
                         style={{
                           fontFamily: "'Orbitron', monospace",
-                          color: "#F5F5F5",
+                          color: "#000000",
                           fontSize: "1rem",
                           fontWeight: 600,
                         }}
@@ -162,7 +162,7 @@ export function AboutSection() {
                     >
                       {exp.company}
                     </div>
-                    <p style={{ color: "#9CA3AF", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.9rem", lineHeight: 1.7 }}>
+                    <p style={{ color: "#000000", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.9rem", lineHeight: 1.7 }}>
                       {exp.desc}
                     </p>
                   </div>
@@ -172,7 +172,7 @@ export function AboutSection() {
               {/* Future node */}
               <div
                 className="absolute -left-3.5 bottom-0 w-5 h-5 rounded-full border-2"
-                style={{ borderColor: "rgba(37,99,235,0.4)", background: "#050505" }}
+                style={{ borderColor: "rgba(37,99,235,0.4)", background: "#ffffff" }}
               />
             </div>
           </motion.div>
@@ -205,7 +205,7 @@ export function SectionHeader({ label, title, inView }: { label: string; title: 
           fontFamily: "'Orbitron', monospace",
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           fontWeight: 700,
-          color: "#F5F5F5",
+          color: "#000000",
           letterSpacing: "-0.02em",
         }}
       >

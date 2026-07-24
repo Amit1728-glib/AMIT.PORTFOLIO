@@ -29,7 +29,7 @@ export function Navigation() {
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
-      style={{ backgroundColor: scrolled ? "rgba(5,5,5,0.9)" : "transparent" }}
+      style={{ backgroundColor: scrolled ? "rgba(255,255,255,0.95)" : "transparent" }}
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -46,7 +46,7 @@ export function Navigation() {
         <motion.a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="text-white font-bold tracking-widest uppercase text-sm"
+          className="text-black font-bold tracking-widest uppercase text-sm"
           style={{ fontFamily: "'Orbitron', monospace", letterSpacing: "0.3em" }}
           whileHover={{ scale: 1.05 }}
         >
@@ -62,7 +62,7 @@ export function Navigation() {
               className="text-sm tracking-widest uppercase transition-colors duration-300"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                color: "#9CA3AF",
+                color: "#1F2937",
                 letterSpacing: "0.15em",
               }}
               whileHover={{ color: "#2563EB", y: -1 }}
@@ -77,7 +77,7 @@ export function Navigation() {
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-black p-2"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -87,7 +87,7 @@ export function Navigation() {
       {/* Mobile menu */}
       <motion.div
         className="md:hidden absolute left-0 right-0 top-full px-6 pb-6 pt-2"
-        style={{ background: "rgba(5,5,5,0.97)", backdropFilter: "blur(20px)" }}
+        style={{ background: "rgba(255,255,255,0.97)", backdropFilter: "blur(20px)" }}
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
         transition={{ duration: 0.3 }}
@@ -99,7 +99,7 @@ export function Navigation() {
               key={link.label}
               onClick={() => scrollTo(link.href)}
               className="text-left text-sm tracking-widest uppercase"
-              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#9CA3AF" }}
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#1F2937" }}
             >
               {link.label}
             </button>
@@ -143,7 +143,7 @@ export function MagneticButton({
         fontFamily: "'Space Grotesk', sans-serif",
         letterSpacing: "0.12em",
         background: isPrimary ? "#2563EB" : "transparent",
-        color: "#F5F5F5",
+        color: isPrimary ? "#F5F5F5" : "#1F2937",
         border: isPrimary ? "none" : "1px solid rgba(37,99,235,0.6)",
       }}
       whileHover={{ scale: 1.05 }}

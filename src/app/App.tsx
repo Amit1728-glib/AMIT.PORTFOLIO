@@ -22,7 +22,7 @@ export default function App() {
       ::-webkit-scrollbar { display: none; }
       * { -ms-overflow-style: none; }
       html { scroll-behavior: smooth; }
-      body { background: #050505; }
+      body { background: #ffffff; color: #000000; }
     `;
     document.head.appendChild(style);
 
@@ -32,7 +32,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen" style={{ background: "#050505", fontFamily: "'Space Grotesk', sans-serif" }}>
+    <div className="relative min-h-screen" style={{ background: "#ffffff", fontFamily: "'Space Grotesk', sans-serif", color: "#000000" }}>
       {/* MARKER-MAKE-KIT-INVOKED */}
 
       {/* Scroll progress bar */}
