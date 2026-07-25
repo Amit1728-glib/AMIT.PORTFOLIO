@@ -387,7 +387,7 @@ export function HeroSection() {
             </MagneticButton>
 
             <a
-              href="https://drive.google.com/file/d/1FKk6Jb9oNbOiuRK2b5yOSgyTAAMKNCUd/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1WBBfizweDSs69Kxt35TmtVSNitvB5biw/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
