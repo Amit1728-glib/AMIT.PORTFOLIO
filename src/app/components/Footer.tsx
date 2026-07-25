@@ -17,7 +17,7 @@ export function Footer() {
           <span style={{ color: "#2563EB" }}>A</span>GRAHARI
         </div>
         <p style={{ color: "#4B5563", fontFamily: "'Space Grotesk', sans-serif", fontSize: "0.85rem" }}>
-          © 2025 Amit Agrahari. Crafted with precision &amp; passion.
+          © 2026 Amit Agrahari. Crafted with precision &amp; passion.
         </p>
         <div
           className="px-3 py-1.5 rounded-full text-xs"
